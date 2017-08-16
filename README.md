@@ -1,5 +1,9 @@
 # php-build-css
-Helper function for generating css with PHP
+Helper function for generating css with PHP.
+Useful for example to avoiding repitition when nesting selectors, or when working with dynamic CSS.
+
+When working with dynamic CSS it may often be easier to store and modify that CSS in an associative array.
+This function allows for easily converting an associative array to CSS.
 
 ## Example usage
 
