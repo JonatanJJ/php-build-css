@@ -84,3 +84,17 @@ form input{
 }
 </style>
 ```
+---
+### Using in style attribute:
+```php
+<div style="<?php echo htmlspecialchars(build_css(array(
+	'background' => '#333',
+	'color' => '#FFF',
+),'', true), ENT_QUOTES ) ?>">
+</div>
+```
+Ouput:
+```html
+<div style="background: #333;color: #FFF;">
+</div>
+```
