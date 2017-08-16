@@ -91,10 +91,10 @@ form input{
 ---
 ### Using in style attribute:
 ```php
-<div style="<?php echo htmlspecialchars(build_css(array(
-	'background' => '#333',
-	'color' => '#FFF',
-),'', true), ENT_QUOTES ) ?>">
+<div style="<?php echo build_css_attr(array(
+  'background' => '#333',
+  'color' => '#FFF',
+)) ?>">
 </div>
 ```
 Ouput:
