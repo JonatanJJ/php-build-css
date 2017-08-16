@@ -6,7 +6,7 @@
  *  Function for generating CSS
  *
  *  @author Jonatan Jall Jahja
- *  @version 1.2
+ *  @version 1.3
  *
  *  @param array|string $attr {
  *    Array or string representing CSS or nested selectors 
