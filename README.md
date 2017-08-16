@@ -8,9 +8,9 @@ Helper function for generating css with PHP
 <style>
 <?php
 	echo build_css(array(
-    	'background' => '#000',
-        'color' => '#FFF',
-    ), 'div');
+		'background' => '#000',
+		'color' => '#FFF',
+	), 'div');
 ?>
 </style>
 ```
@@ -29,11 +29,11 @@ div{
 <style>
 <?php
 	echo build_css(array(
-    	'background-color' => array(
-        	'rgb(212,228,239)', // Fallback value
-        	'linear-gradient(to right, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%)'
-        ),
-    ), 'div');
+		'background-color' => array(
+			'rgb(212,228,239)', // Fallback value
+			'linear-gradient(to right, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%)'
+		),
+	), 'div');
 ?>
 </style>
 ```
@@ -51,17 +51,17 @@ div{
 ```php
 <style>
 <?php
-  echo build_css(array(
-      'background' => '#000',
-      '& button, & .btn' => array( // Nested selector
-        'color' => '#333',
-        'font-size' => '1.5em',
-        '&:hover, &:active, &:focus' => array( // Nested selector
-          'color' => '#666',
-        ),
-      ),
-      '& input' => 'color: #6e6;', // Nested selector with CSS string
-    ), 'form');
+	echo build_css(array(
+		'background' => '#000',
+		'& button, & .btn' => array( // Nested selector
+			'color' => '#333',
+			'font-size' => '1.5em',
+			'&:hover, &:active, &:focus' => array( // Nested selector
+				'color' => '#666',
+			),
+		),
+		'& input' => 'color: #6e6;', // Nested selector with CSS string
+	), 'form');
 ?>
 </style>
 ```
