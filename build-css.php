@@ -6,7 +6,7 @@
  *  Function for generating CSS
  *
  *  @author Jonatan Jall Jahja
- *  @version 1.0
+ *  @version 1.1
  *
  *  @param array|string $attr {
  *    Array or string representing CSS or nested selectors 
@@ -54,7 +54,7 @@ function build_css($attrs, $selector = ''){
       foreach ($values as $value) {
         if($value === false) continue;
 
-        $css .= $attr . ':' . $value . ';';
+        $css .= "\t".$attr . ': ' . $value . ";\n";
       }
     }
   }else{
@@ -63,7 +63,7 @@ function build_css($attrs, $selector = ''){
 
   if(!empty($selector)){
     if(!empty($css)){
-      $css = $selector . '{'.$css."}\n";
+      $css = $selector . "{\n".$css."}\n";
     }
 
     if(!empty($nested)){
@@ -76,7 +76,7 @@ function build_css($attrs, $selector = ''){
           $nested_selectors[] = str_replace('&', $parent_selector, $nested_selector);
         }
 
-        $css .= build_css($nested_attrs,  implode(',', $nested_selectors));
+        $css .= build_css($nested_attrs,  implode(",\n", $nested_selectors));
       }
     }
   }
