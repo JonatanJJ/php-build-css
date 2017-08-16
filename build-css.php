@@ -6,7 +6,7 @@
  *  Function for generating CSS
  *
  *  @author Jonatan Jall Jahja
- *  @version 1.1
+ *  @version 1.2
  *
  *  @param array|string $attr {
  *    Array or string representing CSS or nested selectors 
@@ -58,7 +58,7 @@ function build_css($attrs, $selector = ''){
       }
     }
   }else{
-    $css .= $attrs;
+    $css .= "\t".$attrs."\n";
   }
 
   if(!empty($selector)){
