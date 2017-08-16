@@ -30,13 +30,18 @@
  *
  *  @param string $selector   A valid CSS selector, or empty string if CSS should be returned without a selector
  *                            for example when used within a HTML style-attribute.
+ *
+ *  @param bool $minified     If set to true, will not output tabs or line breaks.
  *  
  *  @return Valid CSS string that can be included between <style> tags, or within a style attribute
  *          The return value should be properly escaped if to be used within a style attribute.
  *
  */
-function build_css($attrs, $selector = ''){
+function build_css($attrs, $selector = '', $minified = false){
   $css = '';
+
+  $tab = $minified ? '' : "\t";
+  $nl = $minified ? '' : "\n";
 
   $nested = array();
   if(is_array($attrs)){
@@ -54,16 +59,16 @@ function build_css($attrs, $selector = ''){
       foreach ($values as $value) {
         if($value === false) continue;
 
-        $css .= "\t".$attr . ': ' . $value . ";\n";
+        $css .= $tab.$attr . ': ' . $value . ';'.$nl;
       }
     }
   }else{
-    $css .= "\t".$attrs."\n";
+    $css .= $tab.$attrs.$nl;
   }
 
   if(!empty($selector)){
     if(!empty($css)){
-      $css = $selector . "{\n".$css."}\n";
+      $css = $selector . '{'.$nl.$css.'}'.$nl;
     }
 
     if(!empty($nested)){
@@ -76,7 +81,7 @@ function build_css($attrs, $selector = ''){
           $nested_selectors[] = str_replace('&', $parent_selector, $nested_selector);
         }
 
-        $css .= build_css($nested_attrs,  implode(",\n", $nested_selectors));
+        $css .= build_css($nested_attrs,  implode(','.$nl, $nested_selectors));
       }
     }
   }
