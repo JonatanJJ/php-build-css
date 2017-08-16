@@ -90,3 +90,20 @@ function build_css($attrs, $selector = '', $minified = false){
   // https://stackoverflow.com/questions/3720836/escaping-javascript-css-between-script-style-tags-insights-on-a-potenti
   return str_replace('</style', '&lt;/style', $css);
 }
+
+/**
+ *  Build CSS attribute
+ *
+ *  Function for generating CSS for use inside a style attribute
+ *
+ *  @author Jonatan Jall Jahja
+ *  @version 1.0
+ *
+ *  @param array|string $attr @see build_css
+ *  
+ *  @return Valid CSS string that can be safely included within a style attribute.
+ *
+ */
+function build_css_attr($attrs){
+  return htmlspecialchars(build_css($attrs,'', true), ENT_QUOTES );
+}
