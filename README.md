@@ -18,7 +18,7 @@ This function allows for easily converting an associative array to CSS.
 ?>
 </style>
 ```
-Ouput:
+Output:
 ```html
 <style>
 div{
@@ -41,7 +41,7 @@ div{
 ?>
 </style>
 ```
-Ouput:
+Output:
 ```html
 <style>
 div{
@@ -69,7 +69,7 @@ div{
 ?>
 </style>
 ```
-Ouput:
+Output:
 ```html
 <style>
 form{
@@ -97,7 +97,7 @@ form input{
 )) ?>">
 </div>
 ```
-Ouput:
+Output:
 ```html
 <div style="background: #333;color: #FFF;">
 </div>
