@@ -81,7 +81,7 @@ function build_css($attrs, $selector = '', $minified = false){
           $nested_selectors[] = str_replace('&', $parent_selector, $nested_selector);
         }
 
-        $css .= build_css($nested_attrs,  implode(','.$nl, $nested_selectors));
+        $css .= build_css($nested_attrs,  implode(','.$nl, $nested_selectors), $minified);
       }
     }
   }
